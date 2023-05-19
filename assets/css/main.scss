@@ -1,6 +1,9 @@
 html {
  --white: #ffffff;
- --black: #000000;
+ --black: #111112;
+ --primary: #F9DC38;
+ --green: #27B03F;
+ --border: #F5F5F6;
 }
 
 *{
@@ -13,6 +16,12 @@ body {
  font-family: 'Montserrat','Courier New', Courier, monospace, Helvetica, sans-serif;                                     
 }
 
+
+*:focus {
+ outline: none;
+}
+
+
 p, h1,h2,h3,h4,h5,h6 {
  margin: 0;
  padding: 0;
@@ -21,4 +30,13 @@ p, h1,h2,h3,h4,h5,h6 {
 button {
  cursor: pointer;
  border: none;
+}
+
+.mainContainer {
+ width: calc(100% - 40px);
+ margin: 0 auto;
+
+ @media (min-width: 920px) {
+  width: calc(100% - 80px);
+ }
 }
