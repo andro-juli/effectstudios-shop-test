@@ -16,6 +16,10 @@ body {
  font-family: 'Montserrat','Courier New', Courier, monospace, Helvetica, sans-serif;                                     
 }
 
+* {
+ transition: opacity 500ms ease;
+}
+
 
 *:focus {
  outline: none;
