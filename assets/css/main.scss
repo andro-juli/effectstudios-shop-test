@@ -25,6 +25,14 @@ body {
  outline: none;
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+ &::-webkit-scrollbar { 
+   display: none;  /* Safari and Chrome */
+ }
+}
+
 
 p, h1,h2,h3,h4,h5,h6 {
  margin: 0;
@@ -39,8 +47,31 @@ button {
 .mainContainer {
  width: calc(100% - 40px);
  margin: 0 auto;
+ max-width: 1512px;
 
  @media (min-width: 920px) {
   width: calc(100% - 80px);
  }
+}
+
+.section {
+ padding: 0;
+
+ @media (min-width: 920px) {
+  padding: 0 2.5rem;
+ }
+}
+
+.section-header {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--black);
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
 }

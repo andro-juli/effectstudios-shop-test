@@ -48,7 +48,6 @@ const btn_text = computed(() => {
  return bannersList.value[active.value][1].btn_text
 });
 
-
 function setAsActive(key) {
  active.value = key;
 }
