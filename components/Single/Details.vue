@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div role="button" class="add-to-cart">
+      <div role="button" class="add-to-cart" @click="store.increment">
         <div class="add-to-cart-text">
           <p>Add to Cart</p>
         </div>
@@ -87,11 +87,14 @@
 import heart from "@/assets/icons/svg/heart-outline.svg";
 import cart from "@/assets/icons/png/shopping-cart-white.png";
 import { useGetPrice } from "~/composables/useGetPrice";
+import { useAddToCartStore } from "~/store/cart";
 const props = defineProps({
   product: {
     type: Object,
   }
 });
+
+const store = useAddToCartStore();
 
 const { getInfo } = useGetPrice()
 
@@ -100,11 +103,8 @@ function readMore() {
   label.classList.toggle("product-description--readMore");
 };
 
-
 const product = computed(() => props.product);
 const saved = computed(() => getInfo(props.product));
-
-console.log(product.value.description);
 
 </script>
 

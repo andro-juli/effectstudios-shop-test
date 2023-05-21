@@ -2,9 +2,9 @@
  <div class="mainContainer">
   <div class="single__product">
    <div class="route__breadcrumbs flex">
-    <p class="home" @click="router.push('/')">Home <span> > </span></p>
-    <p class="category-title" v-if="product.categories">{{ product.categories[0].title }} <span> > </span></p>
-    <p>{{ product.product_name }}</p>
+    <div class="home" @click="router.push('/')">Home <span> > </span></div>
+    <div class="category-title" v-if="product.categories">{{ product.categories[0].title }} <span> > </span></div>
+    <div>{{ product.product_name }}</div>
    </div>
    <div class="single__product--content" v-if="!store.loading">
     <SingleImage :product="product" />
@@ -56,13 +56,21 @@ watchEffect(() => {
  .route__breadcrumbs {
   gap: .5rem;
 
-  p {
+  div {
    font-weight: 500;
    font-size: 10px;
    line-height: 16px;
    letter-spacing: -0.04em;
    cursor: pointer;
    padding: .5rem 0;
+   max-width: 150px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+
+   @media (min-width: 600px) {
+    max-width: max-content;
+   }
 
    &:hover {
     transform: scale(1.02);

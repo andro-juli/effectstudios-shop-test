@@ -7,7 +7,7 @@
    </button>
   </div>
   <div class="mobile_nav-right flex items-center h-full">
-   <img :src="shop" alt="shopping-cart" />
+   <NavbarShoppingCart />
    <div class="flex items-center gap-2">
     <img :src="user" alt="user-avatar" />
     <SvgDown />
@@ -18,7 +18,6 @@
 
 <script setup>
 import user from "@/assets/icons/svg/user.svg";
-import shop from "@/assets/icons/svg/shopping-cart.svg";
 const props = defineProps({
  openSidebar: {
   type: Function

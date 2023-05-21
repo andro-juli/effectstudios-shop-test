@@ -7,6 +7,7 @@ export const useCategoryStore = defineStore('category', () => {
  const categories = ref([]);
  const collections = ref([]);
  const dropDownList = ref([]);
+ const tournaments = ref([]);
 
  const getProductCategories = async (slug) => {
   loading.value = true;
@@ -14,6 +15,18 @@ export const useCategoryStore = defineStore('category', () => {
    const response = await getProductCategory(slug)
    slug === 'others' ? collections.value = response.data.category.sub_categories :
    categories.value = response.data.category.sub_categories;
+  } catch (error) {
+   return error
+  } finally {
+   loading.value = false;
+  }
+ }
+
+ const getSpecialTournaments = async () => {
+  loading.value = true;
+  try {
+   const response = await getProductCategory('special-tournaments')
+   tournaments.value = response.data.category.sub_categories;
   } catch (error) {
    return error
   } finally {
@@ -34,6 +47,6 @@ export const useCategoryStore = defineStore('category', () => {
  }
 
  return {
-  getProductCategories, getCategoriesList, categories, collections, dropDownList
+  getProductCategories, getCategoriesList, getSpecialTournaments, tournaments, categories, collections, dropDownList
  }
 })

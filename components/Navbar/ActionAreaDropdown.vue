@@ -61,6 +61,7 @@ function selectCategory(cat) {
  .dropdown_item {
   padding: 0.4rem 1.5rem;
   cursor: pointer;
+  margin-bottom: .5rem;
 
   &:hover {
    background: var(--border)
@@ -74,8 +75,7 @@ function selectCategory(cat) {
   top: 3.4rem;
   overflow: hidden;
   background: var(--white);
-  width: 110%;
-  max-width: 180px;
+  width: 100%;
   border: 1px solid var(--border);
   z-index: 10;
   display: none;
@@ -83,7 +83,8 @@ function selectCategory(cat) {
 
  .open_dropdown {
   display: block;
-  max-height: 30vh;
+  max-height: 36vh;
+  width: 18vw;
   overflow-y: auto;
  }
 }

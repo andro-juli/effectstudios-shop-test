@@ -1,13 +1,13 @@
 <template>
- <div class="country__leagues section">
+ <div class="special__tournaments section">
   <template v-if="!store.loading">
-   <p class="section-header">Country Leagues</p>
-   <div class="country__leagues--wrapper">
-    <div v-for="category in categories" :key="category.id" class="league-card">
+   <p class="section-header">Special Tournaments</p>
+   <div class="special__tournaments--wrapper">
+    <div v-for="category in tournaments" :key="category.id" class="tournament-card">
      <div class="image">
       <img :src="category.image" alt="">
      </div>
-     <p class="league-name text-center">{{ category.title }}</p>
+     <p class="tournament-name text-center">{{ category.title }}</p>
     </div>
    </div>
   </template>
@@ -20,10 +20,10 @@ import { useCategoryStore } from '~/store/category';
 const store = useCategoryStore();
 
 async function fetchLeaguesCategory() {
- await store.getProductCategories("country-leagues")
+ await store.getSpecialTournaments();
 };
 
-const categories = computed(() => store.categories)
+const tournaments = computed(() => store.tournaments)
 
 watchEffect(() => {
  fetchLeaguesCategory();
@@ -31,8 +31,12 @@ watchEffect(() => {
 </script>
 
 <style lang="scss" scoped>
-.country__leagues {
- padding-top: 5rem;
+.special__tournaments {
+ padding-top: 2.5rem;
+
+ @media (min-width: 768px) {
+  padding-top: 5rem;
+ }
 
  &--wrapper {
   display: flex;
@@ -41,13 +45,13 @@ watchEffect(() => {
   padding: 40px 0;
 
 
-  .league-card {
+  .tournament-card {
    width: max-content;
    cursor: pointer;
    max-width: 10rem;
 
    &:hover {
-    .league-name {
+    .tournament-name {
      text-decoration: underline;
     }
    }

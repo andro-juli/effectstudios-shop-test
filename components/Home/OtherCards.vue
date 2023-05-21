@@ -54,6 +54,7 @@ import ig from "@/assets/icons/png/instagram-black.png";
 
  @media (min-width: 768px) {
   grid: 1fr / repeat(auto-fit, minmax(240px, auto));
+  padding: 80px 0;
  }
 
  &--personalization {

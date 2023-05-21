@@ -37,16 +37,21 @@ watchEffect(() => {
 
 <style lang="scss" scoped>
 .other__collections {
- padding-top: 5rem;
+ padding-top: 2.5rem;
  padding-bottom: 5rem;
 
- &--wrapper {
+ @media (min-width: 768px) {
   padding-top: 5rem;
+ }
+
+ &--wrapper {
+  padding-top: 2.5rem;
   display: grid;
   grid: auto / repeat(auto-fit, minmax(16rem, 1fr));
   gap: 32px;
 
   @media (min-width: 600px) {
+   padding-top: 3.25rem;
    grid: auto / repeat(auto-fit, minmax(22rem, 1fr));
   }
 

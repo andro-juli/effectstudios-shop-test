@@ -109,7 +109,6 @@ watchEffect(() => {
   grid-auto-flow: column;
   grid-auto-columns: minmax(240px, 1fr);
   overflow-x: auto;
-  // padding-right: 4rem;
 
   @media (min-width: 920px) {
    width: calc(100% - 80px);

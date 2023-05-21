@@ -1,8 +1,6 @@
 <template>
  <div class="navbar_right flex items-center h-full">
-  <div class="flex items-center justify-center">
-   <img :src="shop" alt="shopping-cart" />
-  </div>
+  <NavbarShoppingCart />
   <div class="user flex items-center justify-center gap-2 h-full">
    <img :src="user" alt="user-avatar" />
    <SvgDown />
@@ -12,7 +10,7 @@
 
 <script setup>
 import user from "@/assets/icons/svg/user.svg";
-import shop from "@/assets/icons/svg/shopping-cart.svg";
+
 </script>
 
 <style lang="scss" scoped>

@@ -54,13 +54,16 @@ function rightBtnClick() {
  border: 1px solid rgba(255, 255, 255, 0.16);
  backdrop-filter: blur(20px);
 
- &:hover {
-  // background-color: var(--border);
- }
+ &:hover {}
 }
 
 .image__section {
- margin: 0 auto;
+ margin: auto;
+
+ @media (min-width: 940px) {
+  width: 100%;
+  margin: 0;
+ }
 
  .image--wrapper {
   width: 100%;
@@ -120,6 +123,11 @@ function rightBtnClick() {
   display: flex;
   gap: 1rem;
   margin-top: 1.6rem;
+  max-width: 300px;
+
+  @media (min-width: 360px) {
+   max-width: max-content;
+  }
 
 
   .notActive {

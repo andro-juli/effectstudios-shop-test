@@ -7,6 +7,7 @@
   <HomePopularShirts />
   <div class="mainContainer">
    <HomeCountryLeagues />
+   <HomeSpecialTournaments />
    <HomeOtherCollections />
    <HomeOtherCards />
   </div>
