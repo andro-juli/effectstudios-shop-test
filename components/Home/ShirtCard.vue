@@ -5,7 +5,7 @@
   </div>
   <div class="card-text-area grid gap-2">
    <p class="shirt-name">{{ shirt.product_name }}</p>
-   <p class="price">€30.00</p>
+   <p class="price" v-if="shirt.variants.length">€{{ shirt.variants[0].price }}</p>
   </div>
  </div>
 </template>

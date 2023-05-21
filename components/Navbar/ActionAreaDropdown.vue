@@ -1,11 +1,11 @@
 <template>
  <div class="main_dropdown">
   <div class="select-category flex items-center gap-3" @click="toggleOpen">
-   <p class="category font-semibold">{{ activeCategory }}</p>
+   <div class="category">{{ activeCategory }}</div>
    <SvgDown class="svg" />
   </div>
   <div class="dropdown">
-   <div v-for="category in categories" :key="category" class="dropdown_item" @click="selectCategory(category)">
+   <div v-for="category in dropdown" :key="category" class="dropdown_item" @click="selectCategory(category)">
     <p class="dropdown_item-text">{{ category }}</p>
    </div>
   </div>
@@ -13,9 +13,10 @@
 </template>xx
 
 <script setup>
-const categories = ref([
- "Sport", "Mens", "Women"
-]);
+import { useDropdownList } from '~/composables/useDropdownList';
+
+
+const { dropdown } = useDropdownList();
 
 const activeCategory = ref("All Categories")
 
@@ -46,7 +47,12 @@ function selectCategory(cat) {
   line-height: 16px;
   letter-spacing: -0.04em;
   color: var(--black);
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
  }
+
 
  .svg {
   cursor: pointer;
@@ -76,8 +82,9 @@ function selectCategory(cat) {
  }
 
  .open_dropdown {
-  max-height: max-content;
   display: block;
+  max-height: 30vh;
+  overflow-y: auto;
  }
 }
 </style>

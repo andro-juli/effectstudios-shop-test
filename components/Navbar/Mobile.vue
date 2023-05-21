@@ -1,7 +1,7 @@
 <template>
  <div class="mobile_nav flex items-center justify-between">
   <div class="mobile_nav-left flex items-center h-full">
-   <SvgMenu class="menu" />
+   <SvgMenu class="menu" @click="props.openSidebar" />
    <button type="button">
     <SvgSearch />
    </button>
@@ -19,6 +19,11 @@
 <script setup>
 import user from "@/assets/icons/svg/user.svg";
 import shop from "@/assets/icons/svg/shopping-cart.svg";
+const props = defineProps({
+ openSidebar: {
+  type: Function
+ }
+});
 </script>
 
 <style lang="scss" scoped>

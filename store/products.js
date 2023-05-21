@@ -1,11 +1,12 @@
 
 
 import { defineStore } from 'pinia'
-import { getPopularShirts } from '~/api';
+import { getPopularShirts, getSingleProduct } from '~/api';
 
-export const usePopularStore = defineStore('popular', () => {
+export const useProductStore = defineStore('popular', () => {
  const loading = ref(false);
  const shirts = ref([])
+ const singleProduct = ref({})
 
  const getShirtsList = async () =>  {
   try {
@@ -19,7 +20,20 @@ export const usePopularStore = defineStore('popular', () => {
   }
  };
 
+
+ const getProductBySlug = async (slug) =>  {
+  try {
+   loading.value = true;
+   const res = await getSingleProduct(slug);
+   singleProduct.value = res.data.product;
+  } catch (error) {
+   console.log({error})
+  } finally {
+   loading.value = false;
+  }
+ };
+
  return {
-  getShirtsList, loading, shirts,
+  getShirtsList, getProductBySlug, loading, shirts, singleProduct,
  }
 })

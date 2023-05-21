@@ -4,6 +4,8 @@ html {
  --primary: #F9DC38;
  --green: #27B03F;
  --border: #F5F5F6;
+ --dark-grey: #393A38;
+ --red: #EE503E;
 }
 
 *{
@@ -37,6 +39,7 @@ body {
 p, h1,h2,h3,h4,h5,h6 {
  margin: 0;
  padding: 0;
+ letter-spacing: -0.02em;
 }
 
 button {
@@ -63,7 +66,7 @@ button {
 }
 
 .section-header {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: -0.02em;
@@ -71,7 +74,7 @@ button {
   color: var(--black);
 
   @media (min-width: 768px) {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 38px;
   }
 }

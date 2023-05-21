@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
-import { getProductCategory } from "~/api";
+import { getCategoryList, getProductCategory } from "~/api";
 
 
 export const useCategoryStore = defineStore('category', () => {
  const loading = ref(false);
  const categories = ref([]);
  const collections = ref([]);
+ const dropDownList = ref([]);
 
  const getProductCategories = async (slug) => {
   loading.value = true;
@@ -20,7 +21,19 @@ export const useCategoryStore = defineStore('category', () => {
   }
  }
 
+ const getCategoriesList = async () => {
+  loading.value = true;
+  try {
+   const response = await getCategoryList()
+  dropDownList.value = response.data.categories.data;
+  } catch (error) {
+   return error
+  } finally {
+   loading.value = false;
+  }
+ }
+
  return {
-  getProductCategories, categories, collections
+  getProductCategories, getCategoriesList, categories, collections, dropDownList
  }
 })

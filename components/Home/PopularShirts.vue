@@ -11,19 +11,19 @@
     </button>
    </div>
   </div>
-  <div v-if="!shirtsList.length" class="empty mainContainer">
+  <!-- <div v-if="!shirtsList.length" class="empty mainContainer">
    <p class="">No popular shirts listed</p>
-  </div>
-  <div v-else class="popular__shirts--wrapper hide-scrollbar " ref="shirtsWrapper">
+  </div> -->
+  <div class="popular__shirts--wrapper hide-scrollbar " ref="shirtsWrapper">
    <HomeShirtCard v-for="(shirt, index) in shirtsList" :key="shirt.id" :shirt="shirt" />
   </div>
  </div>
 </template>
 
 <script setup>
-import { usePopularStore } from '~/store/products';
+import { useProductStore } from '~/store/products';
 
-const store = usePopularStore();
+const store = useProductStore();
 
 async function fetchShirts() {
  await store.getShirtsList()
@@ -74,7 +74,11 @@ watchEffect(() => {
 
  .header__wrapper {
   margin-bottom: 5rem;
-  padding: 0 80px;
+  padding: 0 20px;
+
+  @media (min-width: 920px) {
+   padding: 0 80px;
+  }
 
   .action-buttons {
    .btn_left {
@@ -97,7 +101,7 @@ watchEffect(() => {
 
 
  &--wrapper {
-  width: calc(100% - 80px);
+  width: calc(100% - 20px);
   margin-left: auto;
   display: grid;
   gap: 22px;
@@ -106,6 +110,10 @@ watchEffect(() => {
   grid-auto-columns: minmax(240px, 1fr);
   overflow-x: auto;
   // padding-right: 4rem;
+
+  @media (min-width: 920px) {
+   width: calc(100% - 80px);
+  }
  }
 }
 </style>

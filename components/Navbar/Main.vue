@@ -1,10 +1,17 @@
 <template>
  <div class="navbar__main">
   <NavbarTop />
-  <NavbarMobile />
+  <NavbarMobile :open-sidebar="toggleSidebar" />
   <NavbarBottom />
+  <NavbarMobileSidebar :toggle-sidebar="toggleSidebar" />
  </div>
 </template>
+<script setup>
+function toggleSidebar() {
+ const label = document.querySelector(".mobile__sidebar");
+ label.classList.toggle("mobile__sidebar-opened");
+}
+</script>
 
 <style lang="scss" scoped>
 .navbar__main {

@@ -13,3 +13,12 @@ export async function getPopularShirts() {
 export async function getProductCategory(slug) {
  return instance.get(`/product-category-slug/${slug}`);
 }
+
+export async function getCategoryList() {
+ return instance.get(`/product-category`);
+}
+
+
+export async function getSingleProduct(slug) {
+ return instance.get(`/product-single/${slug}`);
+}

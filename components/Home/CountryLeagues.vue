@@ -7,7 +7,7 @@
      <div class="image">
       <img :src="category.image" alt="">
      </div>
-     <p class="league-name">{{ category.title }}</p>
+     <p class="league-name text-center">{{ category.title }}</p>
     </div>
    </div>
   </template>
@@ -41,9 +41,9 @@ watchEffect(() => {
   padding: 40px 0;
 
   @media (min-width: 768px) {
-   grid: 1fr / repeat(auto-fit, 200px);
+   grid: 1fr / repeat(auto-fit, minmax(200px, 1fr));
    padding: 80px 0;
-   gap: 2rem;
+   gap: 1rem;
   }
 
   .league-card {
@@ -58,7 +58,7 @@ watchEffect(() => {
    }
 
    @media (min-width: 768px) {
-    max-width: 16.25rem;
+    max-width: 16rem;
    }
   }
 
