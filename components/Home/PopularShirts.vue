@@ -63,21 +63,30 @@ watchEffect(() => {
  width: 100%;
  padding-bottom: 0;
  overflow: hidden;
+ max-width: 1592px;
+ margin: 0 auto;
+
+
+ @media (min-width: 768px) {
+  padding-bottom: 5rem;
+ }
+
+ @media (min-width: 920px) {
+  padding-left: 2.5rem;
+ }
+
 
  .empty {
   padding-left: 2.5rem;
  }
 
- @media (min-width: 768px) {
-  padding-bottom: 5rem;
- }
 
  .header__wrapper {
   margin-bottom: 5rem;
   padding: 0 20px;
 
   @media (min-width: 920px) {
-   padding: 0 80px;
+   padding: 0 40px;
   }
 
   .action-buttons {
@@ -111,7 +120,7 @@ watchEffect(() => {
   overflow-x: auto;
 
   @media (min-width: 920px) {
-   width: calc(100% - 80px);
+   width: calc(100% - 40px);
   }
  }
 }
